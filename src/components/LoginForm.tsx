@@ -5,9 +5,10 @@ import style from '../styles/Home.module.css'
 const LoginForm = () => {    
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [visible, setVisible] = useState(false)
     function handleSubmit(e:FormEvent){
         e.preventDefault()
-        console.log(email, password)
+        setVisible(true)
     }
   return (
     <div className={style.body}>
@@ -23,8 +24,15 @@ const LoginForm = () => {
                 <label>Password</label>
             </div>
             <button className={style.btn} type="submit">Submit</button>
+        
+            {visible ? 
+            <div className='w-[50%] h-[50%] flex justify-center items-center flex-col mt-5 shadow-md rounded-md'>
+                <h3>You are signed in as :</h3><span>{email}</span>
+                <h3>And your password is: </h3><span>{password}</span>
+                <button className={style.btn} onClick={()=>setVisible(false)}>Close</button>
+            </div>: null}
         </form>
-        </div>
+    </div>
     </div>
   )
 }
