@@ -27,8 +27,8 @@ const LoginForm = () => {
         
             {visible ? 
             <div className='w-[50%] h-[50%] flex justify-center items-center flex-col mt-5 shadow-md rounded-md'>
-                <h3>You are signed in as :</h3><span>{email}</span>
-                <h3>And your password is: </h3><span>{password}</span>
+                <h2 className='text-xl'>You are signed in as :</h2><span className='text-xl text-amber-700'>{email}</span>
+                <h4>And your password is: </h4><span>{password}</span>
                 <button className={style.btn} onClick={()=>setVisible(false)}>Close</button>
             </div>: null}
         </form>
